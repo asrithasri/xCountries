@@ -31,26 +31,26 @@ const CountryCard=({name,flag,altText})=>{
 
 
 
-const API_URL ='https://xcountries-backend.azurewebsites.net/all';
+const API_URL ="https://xcountries-backend.azurewebsites.net/all";
 
 function  Countries(){
     const [countries,setCountries] = useState([]);
 
 useEffect(()=>{
-    try{
+//fetch the data
         const fetchData = async()=>{
+        try {
             const response = await fetch(API_URL);
             const jsonResponse = await response.json();
             setCountries(jsonResponse);
-        };
-        fetchData();
 
-    }catch(error){
+        }catch(error){
         console.log("Error fetching data:",error);
-
-    }
-                                                
+    }    
+}      
+fetchData();                              
 },[]);
+
 
 //promise chain method for refernce only
 // fetch(API_URL)
