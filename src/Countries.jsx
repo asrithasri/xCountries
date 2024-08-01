@@ -45,16 +45,18 @@ useEffect(()=>{
         };
         fetchData();
 
-    }catch(e){
-        console.log("Error fetching data:",e);
+    }catch(error){
+        console.log("Error fetching data:",error);
 
     }
-//promise chain method for refernce only
-    // fetch(API_URL)
-    // .then((res)=>res.json())
-    // .then((data)=>setCountries(data))
-    // .catch((error)=>console.log("Error fetching data:",error))
+                                                
 },[]);
+
+//promise chain method for refernce only
+// fetch(API_URL)
+// .then((res)=>res.json())
+// .then((data)=>setCountries(data))
+// .catch((error)=>console.log("Error fetching data:",error))
    
 
     return (
