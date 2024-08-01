@@ -35,7 +35,6 @@ const API_URL ="https://xcountries-backend.azurewebsites.net/all";
 
 function  Countries(){
     const [countries,setCountries] = useState([]);
-    const [error, setError] = useState(null);
 
 
 useEffect(()=>{
@@ -43,24 +42,16 @@ useEffect(()=>{
         const fetchData = async()=>{
         try {
             const response = await fetch(API_URL);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-              }
             const jsonResponse = await response.json();
             setCountries(jsonResponse);
 
         }catch(error){
-        console.log("Error fetching data:",error.message);
-        setError(error.message);
+        console.error("Error fetching data:",error);
     }    
 }; 
 fetchData();  
 
 },[]);
-
-if (error) {
-    return <div>Error fetching data: {error}</div>;
-  }
 //promise chain method for refernce only
 // fetch(API_URL)
 // .then((res)=>res.json())
